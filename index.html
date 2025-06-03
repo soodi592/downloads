@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>soodi592 File Center</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main">
+    <h1>Welcome</h1>
+    <div class="button-container">
+      <button id="view-files">View files published by the website creator</button>
+      <button id="send-file">Send file or content to the website creator</button>
+    </div>
+
+    <div id="file-view" class="hidden"></div>
+
+    <div id="upload-form" class="hidden">
+      <h2>Send a File</h2>
+      <form>
+        <input type="text" placeholder="Your name" required />
+        <textarea placeholder="Description..." required></textarea>
+        <input type="file" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
