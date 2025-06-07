@@ -1,44 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Downloads</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     body {
       background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 20px;
+    }
+
+    h1 {
       text-align: center;
-    }
-
-    .container {
-      margin-top: 100px;
-    }
-
-    .main-button {
-      background-color: #1f1f1f;
-      color: #fff;
-      font-size: 24px;
-      padding: 20px 40px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 8px 0 #0d0d0d;
-      transition: all 0.2s ease;
-    }
-
-    .main-button:hover {
-      box-shadow: 0 4px 0 #000;
-      transform: translateY(4px);
-    }
-
-    .files-section {
-      margin-top: 50px;
-      display: none;
-      padding: 0 20px;
+      margin-bottom: 40px;
+      font-size: 32px;
     }
 
     .file-grid {
@@ -54,70 +33,72 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 140px;
     }
 
     .file-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      word-break: break-all;
+      font-size: 16px;
+      margin-bottom: 12px;
+      word-break: break-word;
     }
 
     .download-btn {
       background-color: #272727;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 4px 0 #0a0a0a;
+      box-shadow: 0 6px 0 #0a0a0a;
     }
 
     .download-btn:hover {
       transform: translateY(2px);
       box-shadow: 0 2px 0 #000;
     }
+
+    @media (max-width: 600px) {
+      .file-card {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <button class="main-button" onclick="showFiles()">View Published Files</button>
-  </div>
-
-  <div class="files-section" id="files-section">
-    <h2>Available Downloads</h2>
-    <div class="file-grid" id="file-grid">
-      <!-- Files will be listed here -->
-    </div>
+  <h1>Available Downloads</h1>
+  <div class="file-grid" id="file-grid">
+    <!-- Files go here -->
   </div>
 
   <script>
     const files = [
-      "example1.pdf",
-      "photo.jpg",
-      "music.mp3",
-      "video.mp4"
+      "old_logo.png",
+      "alt_logo.png",
+      "new_logo.png",
+      "academy_logo_white.png",
+      "academy_logo_black.png",
+      "minecraft-server-file.png"
     ];
 
-    function showFiles() {
-      document.querySelector(".container").style.display = "none";
-      const section = document.getElementById("files-section");
-      section.style.display = "block";
+    const grid = document.getElementById("file-grid");
 
-      const grid = document.getElementById("file-grid");
-      files.forEach(file => {
-        const div = document.createElement("div");
-        div.className = "file-card";
-        div.innerHTML = `
-          <h3>${file}</h3>
-          <a href="files/${file}" target="_blank">
-            <button class="download-btn">Download</button>
-          </a>
-        `;
-        grid.appendChild(div);
-      });
-    }
+    files.forEach(file => {
+      const div = document.createElement("div");
+      div.className = "file-card";
+      div.innerHTML = `
+        <h3>${file}</h3>
+        <a href="files/${file}" target="_blank">
+          <button class="download-btn">Download</button>
+        </a>
+      `;
+      grid.appendChild(div);
+    });
   </script>
+
 </body>
 </html>
