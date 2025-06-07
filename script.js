@@ -1,34 +1,28 @@
-const githubUsername = "soodi592";
-const repoName = "downloads";
-const branch = "main";
-
-// این لیست دستی باید پر شه چون GitHub Pages API نداره که پوشه رو بخونه
-const files = [
-  "sample1.pdf",
-  "photo.png",
-  "example.mp3"
-];
-
 document.getElementById("view-files").onclick = () => {
-  document.getElementById("file-view").classList.remove("hidden");
-  document.getElementById("upload-form").classList.add("hidden");
+  const list = document.getElementById("file-list");
+  const form = document.getElementById("upload-form");
+  form.classList.add("hidden");
+  list.classList.remove("hidden");
+  list.innerHTML = "<p>Loading files...</p>";
 
-  const container = document.getElementById("file-view");
-  container.innerHTML = ""; // پاک کردن قبلی‌ها
+  // Replace this with actual GitHub repo structure if needed
+  const files = [
+    "files/example1.pdf",
+    "files/example2.zip",
+    "files/example3.png"
+  ];
 
-  files.forEach(file => {
-    const rawUrl = `https://raw.githubusercontent.com/${githubUsername}/${repoName}/${branch}/files/${file}`;
-    const card = document.createElement("div");
-    card.className = "file-card";
-    card.innerHTML = `
-      <h3>${file}</h3>
-      <a href="${rawUrl}" target="_blank"><button>Download</button></a>
-    `;
-    container.appendChild(card);
-  });
+  list.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;">' +
+    files.map(f => `
+      <div style="background:#111;padding:15px;border-radius:10px;">
+        <p>${f.split('/').pop()}</p>
+        <a href="${f}" target="_blank"><button class="main-btn">Download</button></a>
+      </div>
+    `).join('') +
+  '</div>';
 };
 
 document.getElementById("send-file").onclick = () => {
-  document.getElementById("file-view").classList.add("hidden");
+  document.getElementById("file-list").classList.add("hidden");
   document.getElementById("upload-form").classList.remove("hidden");
 };

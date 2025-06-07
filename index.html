@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>soodi592 File Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Downloads</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="main">
+  <div class="container">
     <h1>Welcome</h1>
-    <div class="button-container">
-      <button id="view-files">View files published by the website creator</button>
-      <button id="send-file">Send file or content to the website creator</button>
+    <div class="button-group">
+      <button id="view-files" class="main-btn">View Published Files</button>
+      <button id="send-file" class="main-btn">Send File to Developer</button>
     </div>
 
-    <div id="file-view" class="hidden"></div>
+    <div id="file-list" class="hidden"></div>
 
     <div id="upload-form" class="hidden">
-      <h2>Send a File</h2>
-      <form>
-        <input type="text" placeholder="Your name" required />
-        <textarea placeholder="Description..." required></textarea>
-        <input type="file" required />
-        <button type="submit">Submit</button>
-      </form>
+      <input type="text" placeholder="Your name" />
+      <textarea placeholder="Description..."></textarea>
+      <input type="file" />
+      <button class="main-btn">Submit</button>
     </div>
   </div>
 
