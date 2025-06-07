@@ -35,8 +35,10 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.6);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
       height: 140px;
+      text-align: center;
     }
 
     .file-card h3 {
@@ -49,7 +51,7 @@
       background-color: #272727;
       color: white;
       border: none;
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
@@ -77,12 +79,10 @@
 
   <script>
     const files = [
-      "old_logo.png",
-      "alt_logo.png",
-      "new_logo.png",
-      "academy_logo_white.png",
-      "academy_logo_black.png",
-      "minecraft-server-file.png"
+      "example1.pdf",
+      "song.mp3",
+      "image.jpg",
+      "notes.txt"
     ];
 
     const grid = document.getElementById("file-grid");
